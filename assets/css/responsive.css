@@ -46,11 +46,11 @@
 
     @keyframes slidein {
         from {
-          transform: translateX(50%);
+            opacity: 0;
         }
 
         to {
-          transform: translateX(-50%);
+            opacity: 1;
         }
       }
 
