@@ -44,13 +44,71 @@
 
 @media screen and (max-width: 900px) {
 
+    @keyframes slidein {
+        from {
+          transform: translateX(50%);
+        }
+
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
     .header .navbar, .header .request.btn {
         display: none;
+    }
+
+    .header {
+        z-index: 3;
+        position: relative;
+        height: fit-content;
+        padding-top: 10px;
+        padding-bottom: 11px;
+    }
+
+    .header.active {
+        box-shadow: 5px -40px 1000px 640px hsla(233, 26%, 24%, 0.7);
+    }
+
+    .header .menu li:hover {
+        border: none;
+    }
+
+    .header .navbar.active {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 80px;
+        height: fit-content;
+        width: 92%;
+        left: 50%;
+        transform: translate(-50%);
+        border-radius: 5px;
+        z-index: 1;
+        background-color: #fff;
+        padding: 35px 0;
+        animation-name: slidein;
+        animation-duration: .5s;
+    }
+
+    .header .navbar.active .menu {
+        flex-direction: column;
+    }
+
+    .header .navbar.active .menu .link {
+        font-size: 17px;
+        color: var(--primary-dark-blue);
+        text-shadow: 0 0 1px hsla(233, 26%, 24%, 0.75);
     }
 
     .header .menu-hamburger {
         display: block;
     }
+
+    .header .menu-hamburger.active {
+        background-image: url(../images/icon-close.svg);
+    }
+
 
     .hero-inner {
         padding-left: 0;
@@ -220,4 +278,22 @@
     .main #about .item .subtitle {
         margin-top: 3px;
     }
+
+    .main #latest .title {
+        font-size: 33px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+
+    .hero-inner {
+        background-position: top -75px right 0;
+        background-size: 390px;
+    }
+
+    .hero-inner::after {
+        background-size: 360px;
+        height: 312px;
+    }
+
 }
